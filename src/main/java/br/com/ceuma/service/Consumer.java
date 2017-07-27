@@ -1,6 +1,7 @@
 package br.com.ceuma.service;
 
 import br.com.ceuma.exception.ConsumerException;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public interface Consumer {
 
-    <T> T get(String url, String querySearch) throws ConsumerException;
-    <T> List<T> getList(String url, String querySearch) throws ConsumerException;
-    <T> T post(String url, Object objToSend) throws ConsumerException;
+    Object get(String url, String querySearch, Class typeReturnExpected) throws ConsumerException;
+    List<Object> getList(String url, String querySearch, Class typeReturnExpected) throws ConsumerException;
+    ResponseEntity post(String url, Object objToSend, Class typeReturnExpected) throws ConsumerException;
 }

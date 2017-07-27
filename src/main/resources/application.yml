@@ -6,6 +6,12 @@ datasource:
     password: sql123
     username: root
 
+quartz:
+  enabled: true
+
+job:
+  frequency: 3000
+
 jdbc:
     driver:
         className: com.mysql.jdbc.Driver
@@ -27,4 +33,8 @@ spring:
             INDENT_OUTPUT: true
     profiles:
       active: dev-ceuma
-
+    datasource:
+      url: jdbc:h2:mem:test
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver

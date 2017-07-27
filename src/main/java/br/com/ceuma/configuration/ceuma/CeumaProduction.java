@@ -14,7 +14,7 @@ import org.springframework.context.annotation.*;
 public class CeumaProduction implements Context {
 
     @Override
-    @Bean("CONTEXT")
+    @Bean(name = "CONTEXT")
     public String getContext() {
         return "CEUMA PRODUCTION";
     }

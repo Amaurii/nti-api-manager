@@ -1,7 +1,8 @@
 package br.com.ceuma.model;
 
+import br.com.ceuma.exception.BrokenAPIException;
 import lombok.Data;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 
@@ -37,4 +38,12 @@ public class Sistema {
 
     @Column(name="SIS01DESCR")
     private String descricao;
+
+
+    public boolean sistemaEstaDisponivel(Response response) throws BrokenAPIException{
+        if(!response.getCodigo().equals(HttpStatus.OK))
+            throw new BrokenAPIException(new RuntimeException(),"A api "+this.getNome()+" encontra-se OFFLINE ! Por favor, verifique !");
+
+        return true;
+    }
 }

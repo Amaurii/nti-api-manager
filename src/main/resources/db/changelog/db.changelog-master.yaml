@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: quartz_tables_h2
+      author: david
+      changes:
+      - sqlFile:
+          dbms: h2
+          encoding: utf8
+          path: "/sql/quartz_tables_h2.sql"
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+

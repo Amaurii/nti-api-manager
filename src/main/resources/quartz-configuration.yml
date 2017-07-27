@@ -1,0 +1,15 @@
+org:
+  quartz:
+    scheduler:
+      instanceName: nti-check-api
+      instanceId: AUTO
+  threadPool:
+    threadCount: 5
+  jobStore:
+    class: org.quartz.impl.jdbcjobstore.JobStoreTX
+    driverDelegateClass: org.quartz.impl.jdbcstore.StdJDBCDelegate
+    useProperties: true
+    misfireThreshold: 60000
+    tablePrefox: QRTZ_
+    isClustered: true
+    clusterCheckInterval: 20000

@@ -1,10 +1,9 @@
 package br.com.ceuma.model;
 
 import lombok.Data;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Calendar;
 
 @Entity
@@ -30,4 +29,11 @@ public class Monitor {
     @ManyToOne(targetEntity = Sistema.class)
     @JoinColumn(name="FK0103CODSISTEMA", referencedColumnName = "SIS01CODIGO")
     private Sistema sistema;
+
+    public Monitor(Response response, Sistema sistema) {
+        this.statusAtual = response.getCodigo().equals(HttpStatus.OK)?"OK":"BROKEN";
+        this.respostaDaUltimaRequisicao = response.getMensagem();
+        this.sistema = sistema;
+        this.dataRequisicao = Calendar.getInstance();
+    }
 }
