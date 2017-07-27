@@ -1,0 +1,30 @@
+server:
+    context-path: /api-manager
+
+
+datasource:
+    password: sql123
+    username: root
+
+jdbc:
+    driver:
+        className: com.mysql.jdbc.Driver
+
+properties:
+    hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        hbm2ddl:
+            auto: update
+        id:
+            new_generator_mappings: false
+        show_sql: true
+        transaction:
+            auto_close_session: true
+spring:
+    jackson:
+        serialization:
+            INDENT_OUTPUT: true
+    profiles:
+      active: dev-ceuma
+

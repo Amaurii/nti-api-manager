@@ -1,0 +1,9 @@
+spring:
+    datasource:
+        url: jdbc:jtds:sqlserver://cl2db:1433/BDSPFP
+    profiles:
+      active: prod-ceuma
+      include: common
+      
+app:
+    context: Ceuma Production

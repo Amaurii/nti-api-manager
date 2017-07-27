@@ -1,0 +1,9 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/BDAPIS?useSSL=false
+    profiles:
+      active: dev-ceuma
+      include: common
+
+app:
+    context: Ceuma Development
